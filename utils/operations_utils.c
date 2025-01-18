@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   operations_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 19:58:49 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/18 18:57:33 by maballet         ###   ########lyon.fr   */
+/*   Created: 2025/01/18 19:01:43 by maballet          #+#    #+#             */
+/*   Updated: 2025/01/18 19:03:58 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.c"
 
-# include "libft/inc/libft.h"
+int stack_count(int *stack)
+{
+    int i;
 
-int		**push_swap(char **numbers, int argc);
-int		int_doublechecker(int *stack_a);
-int		char_checker(char **argv);
-int     **init(char **numbers, int argc);
-int		**int_atolchecker(char **numbers, int argc);
-void	free_stacks(int **stack);
-void    push_a(int **stack);
-
-#endif
+    i = 0;
+    while (stack[i])
+        i++;
+    return (i);
+}
