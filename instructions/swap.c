@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_utils.c                                 :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/18 19:01:43 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/20 16:15:41 by maballet         ###   ########lyon.fr   */
+/*   Created: 2025/01/20 15:13:50 by maballet          #+#    #+#             */
+/*   Updated: 2025/01/20 15:18:49 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int stack_count(int *stack, int argc)
+void    swap_a(int **stack)
 {
     int i;
+	int	temp;
 
-    i = 0;
-    while (stack[argc - 2 - i])
-        i++;
-    return (i);
-}
-
-int start_of_stack(int *stack, int argc)
-{
-    int i;
-
-    i = argc - 2;
-    while (stack[i] != '\0')
-        i--;
-    i++;
-    return (i);
+    i = start_of_stack(stack[0]);
+	temp = 0;
+	temp = stack[0][i];
+	stack [0][i] = stack [0][i + 1];
+	stack [0][i + 1] = temp;
 }

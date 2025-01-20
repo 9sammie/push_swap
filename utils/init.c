@@ -6,11 +6,11 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:26:49 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/18 18:43:29 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 15:12:47 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int     **init(char **numbers, int argc)
 {

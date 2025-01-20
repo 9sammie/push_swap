@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:49:23 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/18 18:43:52 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/01/20 15:48:30 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int		**push_swap(char **numbers, int argc)
 	pile = init(numbers, argc);
 	if (!(pile))
 		return NULL;
+	push_b(pile, argc);
+	push_b(pile, argc);
+	push_b(pile, argc);
+	push_b(pile, argc);
+	push_b(pile, argc);
 	return (pile);
 }
 
