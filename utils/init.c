@@ -6,32 +6,30 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:26:49 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/20 15:12:47 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/01/22 14:21:05 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int     **init(char **numbers, int argc)
+int     init(t_stack *stack_a, t_stack *stack_b, char **numbers, int argc)
 {
-    int **pile;
-
-    pile = int_atolchecker(numbers, argc);
-	if (!(pile))
-		return NULL;
-	if (int_doublechecker(pile[0]) == 1)
+	stack_a->length = 0;
+	stack_a->array = ft_calloc(argc - 1, sizeof(int));
+	stack_b->length = 0;
+	stack_b->array = ft_calloc(argc - 1, sizeof(int));
+	if (stack_a->array == NULL || stack_b->array == NULL)
 	{
-		free_stacks(pile);
-		return NULL;
+		free_stack(stack_a, stack_b);
+		return (1);
 	}
-	return(pile);
-}
-
-void	free_stacks(int **stack)
-{
-	free(stack[0]);
-	free(stack[1]);
-	free(stack);
+	if (char_checker(numbers) == 1)
+		return (1);
+    if (int_overflowchecker(stack_a, numbers) == 1)
+		return (1);
+	if (int_doublechecker(stack_a) == 1)
+		return (1);
+	return (0);
 }
 
 int		char_checker(char **argv)
@@ -62,18 +60,18 @@ int		char_checker(char **argv)
 	return (0);
 }
 
-int		int_doublechecker(int *stack_a)
+int		int_doublechecker(t_stack *stack_a)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (stack_a[i])
+	while (stack_a->array[i])
 	{
 		j = i;
-		while (stack_a[j])
+		while (stack_a->array[j])
 		{
-			if (stack_a[i] == stack_a[j] && i!=j)
+			if (stack_a->array[i] == stack_a->array[j] && i != j)
 			{
 				ft_printf("Error\n");
 				return (1);
@@ -85,31 +83,23 @@ int		int_doublechecker(int *stack_a)
 	return (0);
 }
 
-int		**int_atolchecker(char **numbers, int argc)
+int		int_overflowchecker(t_stack *stack_a, char **numbers)
 {
-	int	**pile;
-	int	i;
+	int		i;
 	long	check;
 
 	i = 0;
-	if (!(pile = malloc(sizeof(int*) * 3)) ||
-		!(pile[0] = ft_calloc(argc, sizeof(int))) ||
-		!(pile[1] = ft_calloc(argc, sizeof(int))))
-	{
-		ft_printf("Error");
-		free_stacks(pile);
-		return NULL;
-	}
-	pile[2] = NULL;
 	while (numbers[i + 1] != NULL)
 	{
-		if ((check = ft_atol(numbers[i + 1])) > 2147483647 || check < -2147483648)
+		check = ft_atoi(numbers[i + 1]);
+		if (check > INT_MAX || check < INT_MIN)
 		{
 			ft_printf("Error\n");
-			free_stacks(pile);
-			return NULL;
+			return (1);
 		}
-		pile[0][i++] = check;
+		stack_a->array[i] = check;
+		stack_a->length++;
+		i++;
 	}
-	return (pile);
+	return (0);
 }
