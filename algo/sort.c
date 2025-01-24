@@ -6,27 +6,23 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:45:57 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/22 16:23:59 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/01/24 17:51:35 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		sort(t_stack *stack_a, t_stack *stack_b, int op_count)
+void	sort(t_stack *stack_a, t_stack *stack_b)
 {
-	while (sort_check(stack_a) == 1)
+	if (sort_check(stack_a) != 0)
 	{
-	if (stack_a->length == 2)
-	{
-		swap(stack_a, NULL, "sa");
-		op_count++;
+		if (stack_a->length == 2)
+			swap(stack_a, NULL, "sa");
+		else if (stack_a->length == 3)
+			sort_3(stack_a);
+		else
+			sort_big(stack_a, stack_b);
 	}
-	if (stack_a->length == 3)
-		op_count += sort_3(stack_a, op_count);
-	if (stack_a->length == 5) 
-		sort_5(stack_a);
-	}	
-	return (op_count);
 }
 
 int		sort_check(t_stack *stack)
@@ -43,8 +39,27 @@ int		sort_check(t_stack *stack)
 	return (0);
 }
 
-int		sort_3(t_stack *stack, int op_count)
+void	sort_3(t_stack *stack)
 {
-	
-	while ()
+	if (find_max(stack) == 0)
+		{
+			rotate(stack, NULL, "ra\n");
+			if (sort_check(stack) != 0)
+				swap(stack, NULL, "sa\n");
+		}
+	else if (find_min(stack) == 0)
+	{
+		if (sort_check(stack) != 0)
+		{
+			swap(stack, NULL, "sa\n");
+			rotate(stack, NULL, "ra\n");
+		}
+	}
+	else
+	{
+		if (stack->array[1] == find_min(stack))
+			swap(stack, NULL, "sa\n");
+		else
+			reverse_rotate(stack, NULL, "rra\n");
+	}
 }

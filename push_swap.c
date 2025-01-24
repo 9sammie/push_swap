@@ -6,20 +6,11 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:49:23 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/22 16:15:21 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/01/24 14:51:15 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int		push_swap(t_stack *stack_a, t_stack *stack_b, char **numbers, int argc)
-{
-	static int	op_count = 0;
-	if (init(stack_a, stack_b, numbers, argc) == 1)
-		return (1);
-	sort(stack_a, stack_b, op_count);
-	return (0);
-}
 
 void	print_stack(t_stack *stack_a, t_stack *stack_b)
 {
@@ -41,38 +32,36 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-int    main(int argc, char **argv)
+int		push_swap(t_stack *stack_a, t_stack *stack_b, char **numbers, int argc)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
-
-	if (argc < 2 || char_checker(argv) == 1)
-		return (0);
-	stack_a = malloc(sizeof(t_stack));
-	stack_b = malloc(sizeof(t_stack));
-	if (stack_a == NULL || stack_b == NULL)
-	{
-		free_stack(stack_a, stack_b);
+	if (char_checker(numbers) == 1)
 		return (1);
-	}
-	if (push_swap(stack_a, stack_b, argv, argc) == 1)
-	{
-		free_stack(stack_a, stack_b);
+    if (int_overflowchecker(stack_a, numbers) == 1)
 		return (1);
-	}
+	if (int_doublechecker(stack_a) == 1)
+		return (1);
+	sort(stack_a, stack_b);
 	print_stack(stack_a, stack_b);
-	free_stack(stack_a, stack_b);
-	return(0);
+	return (0);
 }
 
-void	free_stack(t_stack *stack_a, t_stack *stack_b)
+int    main(int argc, char **argv)
 {
-	if (stack_a->array)
-		free(stack_a->array);
-	if (stack_b->array)
-		free(stack_b->array);
-	if (stack_a)
-		free(stack_a);
-	if (stack_b)
-		free(stack_b);
+	t_stack stack_a;
+	t_stack stack_b;
+	int ret;
+
+	if (argc < 2)
+		return (0);
+	stack_a.length = 0;
+	stack_a.array = malloc((argc - 1) * sizeof(int));
+	stack_b.length = 0;
+	stack_b.array = malloc((argc - 1) * sizeof(int));
+	if (stack_a.array == NULL || stack_b.array == NULL)
+		ret = EXIT_FAILURE;
+	else
+		ret = push_swap(&stack_a, &stack_b, argv, argc);
+	free(stack_a.array);
+	free(stack_b.array);
+	return(ret);
 }
