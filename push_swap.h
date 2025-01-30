@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 19:58:49 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/24 17:46:59 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/01/30 15:21:48 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,14 @@ int		find_min(t_stack *stack);
 void	sort_big(t_stack *stack_a, t_stack *stack_b);
 int		find_cheapest(t_stack *stack_a, t_stack *stack_b);
 int		find_closest_inf(int nbr, t_stack *stack);
+int		find_closest_sup(int nbr, t_stack *stack);
 void	sort_big(t_stack *stack_a, t_stack *stack_b);
 void	push_cheapest(t_stack *stack_a, t_stack *stack_b, int cheapest);
+int		find_median(t_stack *a);
+void	median_sort(t_stack *a, t_stack *b);
+void	max_on_top(t_stack *stack);
+void	min_on_top(t_stack *stack);
+int		check_rotate(int nbr, t_stack *stack);
+void	cpy_sort(t_stack *stack);
 
 #endif

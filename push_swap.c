@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:49:23 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/28 16:59:09 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/01/30 13:58:23 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		push_swap(t_stack *stack_a, t_stack *stack_b, char **numbers, int argc)
 	if (int_doublechecker(stack_a) == 1)
 		return (1);
 	sort(stack_a, stack_b);
-	//print_stack(stack_a, stack_b);
+	print_stack(stack_a, stack_b);
 	return (0);
 }
 
