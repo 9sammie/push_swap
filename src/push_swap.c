@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:49:23 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/30 17:52:54 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/01/31 11:57:07 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-int		push_swap(t_stack *stack_a, t_stack *stack_b, char **numbers, int argc)
+int		push_swap(t_stack *stack_a, t_stack *stack_b, char **numbers)
 {
 	if (char_checker(numbers) == 1)
 		return (1);
@@ -60,7 +60,7 @@ int    main(int argc, char **argv)
 	if (stack_a.array == NULL || stack_b.array == NULL)
 		ret = EXIT_FAILURE;
 	else
-		ret = push_swap(&stack_a, &stack_b, argv, argc);
+		ret = push_swap(&stack_a, &stack_b, argv);
 	free(stack_a.array);
 	free(stack_b.array);
 	return(ret);

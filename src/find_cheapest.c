@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:22:28 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/30 17:53:05 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/01/31 11:41:03 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		find_cheapest(t_stack *dest, t_stack *src)
 	{
 		index_of_closest = find_closest_sup(src->array[i], dest);
 		if (i <= src->length / 2) //if in the upper part of stack a
-			count_cost_01( dest, src, &index_of_closest, &i, &cost);
+			count_cost_01( dest, &index_of_closest, &i, &cost);
 		else //if in lower part
 			count_cost_02( dest, src, &index_of_closest, &i, &cost);
 		if (cost < cheapest)
@@ -41,7 +41,7 @@ int		find_cheapest(t_stack *dest, t_stack *src)
 	return (index_of_cheapest);
 }
 
-void	count_cost_01(t_stack *dest, t_stack *src, int *index_of_closest, int *i, int *cost)
+void	count_cost_01(t_stack *dest, int *index_of_closest, int *i, int *cost)
 {
 	if (*index_of_closest <= dest->length / 2)
 				if (*index_of_closest > *i)

@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:35:42 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/30 17:53:11 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/01/31 11:46:20 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	min_on_top(t_stack *stack)
 	if (min <= stack->length / 2)
 		while (min-- > 0)
 			rotate(stack, NULL, "ra\n");
-	if (min > stack->length / 2)
+	else
 		while (rev_op-- > 0)
 			reverse_rotate(stack, NULL, "rra\n");
 }

@@ -4,7 +4,7 @@
 #####################################################
 
 SRC =	src/push_swap.c \
-		src/checks.c \
+		src/check.c \
 		src/find_cheapest.c \
 		src/push_cheapest.c \
 		src/instructions.c \
@@ -34,10 +34,10 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(LIBFT):
-	make -c $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
 
-$(OBJ) %.o: %.c $(HEADER) makefile
-	$(CC) $(CFLAGS) -I 4(LIBFT_DIR) -c $< -o $@
+%.o: %.c $(HEADER) Makefile
+	$(CC) $(CFLAGS) -I inc -I $(LIBFT_DIR)/inc -c $< -o $@
 
 $(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJ) -L $(LIBFT_DIR) -lft -o $(NAME)
@@ -45,10 +45,10 @@ $(NAME): $(OBJ) $(LIBFT)
 clean:
 	rm -rf $(OBJ)
 	make -C $(LIBFT_DIR) clean
+	make -C $(LIBFT_DIR) fclean
 
 fclean: clean
 	rm -f $(NAME)
-	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
