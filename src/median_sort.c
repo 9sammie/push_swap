@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:34:01 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/30 17:53:00 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/03 11:22:12 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ void	median_sort(t_stack *a, t_stack *b)
 	int	median;
 
 	median = find_median(a);
-	//ft_printf("median : %d\n", median);
+	push(b, a, "pb");
 	while (a->length > 3)
 		if (a->array[0] >= median)
-			push(b, a, "pb\n");
+			push(b, a, "pb");
 		else
 		{
-			push(b, a, "pb\n");
-			rotate(b, NULL, "rb\n");
+			push(b, a, "pb");
+			rotate(b, NULL, "rb");
 		}
 }

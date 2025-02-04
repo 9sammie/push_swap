@@ -6,14 +6,14 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 19:58:49 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/31 11:40:41 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/03 14:52:56 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft.h"
+#include "libft.h"
 
 typedef struct	s_stack
 {

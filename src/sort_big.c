@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:35:42 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/31 11:46:20 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/03 11:35:34 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		check_rotate(int nbr, t_stack *stack)
 {
 	if (stack->array[stack->length - 1] < stack->array[0] && stack->array[stack->length - 1] > nbr)
 	{
-		reverse_rotate(stack, NULL, "rra\n");
+		reverse_rotate(stack, NULL, "rra");
 		return (1);
 	}
 	return (0);
@@ -33,10 +33,10 @@ void	max_on_top(t_stack *stack)
 	rev_op = stack->length - max;
 	if (max <= stack->length / 2)
 		while (max-- > 0)
-			rotate(stack, NULL, "rb\n");
+			rotate(stack, NULL, "rb");
 	if (max > stack->length / 2)
 		while (rev_op-- > 0)
-			reverse_rotate(stack, NULL, "rrb\n");
+			reverse_rotate(stack, NULL, "rrb");
 }
 void	min_on_top(t_stack *stack)
 {
@@ -49,10 +49,10 @@ void	min_on_top(t_stack *stack)
 	rev_op = stack->length - min;
 	if (min <= stack->length / 2)
 		while (min-- > 0)
-			rotate(stack, NULL, "ra\n");
+			rotate(stack, NULL, "ra");
 	else
 		while (rev_op-- > 0)
-			reverse_rotate(stack, NULL, "rra\n");
+			reverse_rotate(stack, NULL, "rra");
 }
 
 void	sort_big(t_stack *stack_a, t_stack *stack_b)
@@ -62,7 +62,8 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b)
 	
 	j = 3;
 	median_sort(stack_a, stack_b);
-	sort_3(stack_a);
+	if (sort_check(stack_a) != 0)
+		sort_3(stack_a);
 	while(stack_b->length > 0)
 	{
 		i = find_cheapest(stack_a, stack_b);

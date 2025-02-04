@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:49:23 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/31 11:57:07 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/04 14:20:45 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 	int	i;
 
 	i = 0;
-	ft_printf("\na\n-\n\n");
+	printf("\na\n-\n\n");
 	while(i < stack_a->length)
 	{
-		ft_printf("%d\n", stack_a->array[i]);
+		printf("%d\n", stack_a->array[i]);
 		i++;
 	}
 	i = 0;
-	ft_printf("\nb\n-\n\n");
+	printf("\nb\n-\n\n");
 	while(i < stack_b->length)
 	{
-		ft_printf("%d\n", stack_b->array[i]);
+		printf("%d\n", stack_b->array[i]);
 		i++;
 	}
 }

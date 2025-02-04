@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:45:57 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/30 17:53:16 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/03 11:11:44 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,20 @@ void	sort_3(t_stack *stack)
 {
 	if (find_max(stack) == 0)
 	{
-		rotate(stack, NULL, "ra\n");
+		rotate(stack, NULL, "ra");
 		if (sort_check(stack) != 0)
-			swap(stack, NULL, "sa\n");
+			swap(stack, NULL, "sa");
 	}
 	else if (find_min(stack) == 0)
 	{
-		swap(stack, NULL, "sa\n");
-		rotate(stack, NULL, "ra\n");
+		swap(stack, NULL, "sa");
+		rotate(stack, NULL, "ra");
 	}
 	else
 	{
 		if (find_min(stack) == 1)
-			swap(stack, NULL, "sa\n");
+			swap(stack, NULL, "sa");
 		else
-			reverse_rotate(stack, NULL, "rra\n");
+			reverse_rotate(stack, NULL, "rra");
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:26:49 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/30 17:53:08 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/04 14:30:02 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int		char_checker(char **argv)
 	{
 		while (argv[i][j])
 		{
-			if (argv[i][j] == '-')
+			if (argv[i][j] == '-' || argv[i][j] == '+')
 				j++;
 			if (ft_isdigit(argv[i][j]) == 0)
 			{
-				ft_printf("Error\n");
+				ft_putendl_fd("Error", 0);
 				return (1);
 			}
 			j++;
@@ -53,7 +53,7 @@ int		int_doublechecker(t_stack *stack_a)
 		{
 			if (stack_a->array[i] == stack_a->array[j] && i != j)
 			{
-				ft_printf("Error\n");
+				ft_putendl_fd("Error", 0);
 				return (1);
 			}
 			j++;
@@ -74,7 +74,7 @@ int		int_overflowchecker(t_stack *stack_a, char **numbers)
 		check = ft_atoi(numbers[i + 1]);
 		if (check > INT_MAX || check < INT_MIN)
 		{
-			ft_printf("Error\n");
+			ft_putendl_fd("Error", 0);
 			return (1);
 		}
 		stack_a->array[i] = check;

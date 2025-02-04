@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:02:19 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/30 17:53:03 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/04 16:51:09 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ void	swap(t_stack *s1, t_stack *s2, char *instruct)
 		tmp = s2->array[0];
 		s2->array[0] = s2->array[1];
 		s2->array[1] = tmp;
-		ft_printf("%s", instruct);
+		if (instruct != NULL)
+			ft_putendl_fd(instruct, 1);
 		return ;
 	}
-	ft_printf("%s", instruct);
+	if (instruct != NULL)
+		ft_putendl_fd(instruct, 1);
 }
 
 void	push(t_stack *dest, t_stack *src, char *instruct)
@@ -35,7 +37,8 @@ void	push(t_stack *dest, t_stack *src, char *instruct)
 	if (src->array[0] == '\0')
 		return ;
 	stack_unshift(dest, stack_shift(src));
-	ft_printf("%s", instruct);
+	if (instruct != NULL)
+		ft_putendl_fd(instruct, 1);
 }
 
 void	rotate(t_stack *s1, t_stack *s2, char *instruct)
@@ -44,10 +47,12 @@ void	rotate(t_stack *s1, t_stack *s2, char *instruct)
 	if (s2 != NULL)
 	{
 		stack_push(s2, stack_shift(s2));
-		ft_printf("%s", instruct);
+		if (instruct != NULL)
+			ft_putendl_fd(instruct, 1);
 		return ;
 	}
-	ft_printf("%s", instruct);
+	if (instruct != NULL)
+		ft_putendl_fd(instruct, 1);
 }
 
 void	reverse_rotate(t_stack *s1, t_stack *s2, char *instruct)
@@ -56,8 +61,10 @@ void	reverse_rotate(t_stack *s1, t_stack *s2, char *instruct)
 	if (s2 != NULL)
 	{
 		stack_unshift(s2, stack_pop(s2));
-		ft_printf("%s", instruct);
+		if (instruct != NULL)
+			ft_putendl_fd(instruct, 1);
 		return ;
 	}
-	ft_printf("%s", instruct);
+	if (instruct != NULL)
+		ft_putendl_fd(instruct, 1);
 }
