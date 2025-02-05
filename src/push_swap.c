@@ -6,50 +6,29 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:49:23 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/04 14:20:45 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 13:13:33 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *stack_a, t_stack *stack_b)
-{
-	int	i;
-
-	i = 0;
-	printf("\na\n-\n\n");
-	while(i < stack_a->length)
-	{
-		printf("%d\n", stack_a->array[i]);
-		i++;
-	}
-	i = 0;
-	printf("\nb\n-\n\n");
-	while(i < stack_b->length)
-	{
-		printf("%d\n", stack_b->array[i]);
-		i++;
-	}
-}
-
-int		push_swap(t_stack *stack_a, t_stack *stack_b, char **numbers)
+int	push_swap(t_stack *stack_a, t_stack *stack_b, char **numbers)
 {
 	if (char_checker(numbers) == 1)
 		return (1);
-    if (int_overflowchecker(stack_a, numbers) == 1)
+	if (int_overflowchecker(stack_a, numbers) == 1)
 		return (1);
 	if (int_doublechecker(stack_a) == 1)
 		return (1);
 	sort(stack_a, stack_b);
-	//print_stack(stack_a, stack_b);
 	return (0);
 }
 
-int    main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_stack stack_a;
-	t_stack stack_b;
-	int ret;
+	t_stack	stack_a;
+	t_stack	stack_b;
+	int		ret;
 
 	if (argc < 2)
 		return (0);
@@ -63,5 +42,5 @@ int    main(int argc, char **argv)
 		ret = push_swap(&stack_a, &stack_b, argv);
 	free(stack_a.array);
 	free(stack_b.array);
-	return(ret);
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:34:01 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/03 11:22:12 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 13:01:29 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,19 @@ void	cpy_sort(t_stack *stack)
 	}
 }
 
-int		find_median(t_stack *a)
+int	find_median(t_stack *a)
 {
-	int	i;
+	int		i;
 	t_stack	copy;
-	int	median;
+	int		median;
+	int		med_nbr;
 
 	i = 0;
 	copy.length = a->length;
 	copy.array = malloc(sizeof(int) * a->length);
 	if (copy.array == NULL)
 		return (-1);
+	med_nbr = copy.array[a->length / 2];
 	while (i < a->length)
 	{
 		copy.array[i] = a->array[i];
@@ -55,9 +57,9 @@ int		find_median(t_stack *a)
 	}
 	cpy_sort(&copy);
 	if (a->length % 2 == 0)
-		median = (copy.array[a->length / 2 - 1] + copy.array[a->length / 2]) / 2;
+		median = med_nbr - 1;
 	else
-		median = copy.array[a->length / 2];
+		median = med_nbr;
 	free(copy.array);
 	return (median);
 }
@@ -69,6 +71,7 @@ void	median_sort(t_stack *a, t_stack *b)
 	median = find_median(a);
 	push(b, a, "pb");
 	while (a->length > 3)
+	{
 		if (a->array[0] >= median)
 			push(b, a, "pb");
 		else
@@ -76,4 +79,5 @@ void	median_sort(t_stack *a, t_stack *b)
 			push(b, a, "pb");
 			rotate(b, NULL, "rb");
 		}
+	}
 }

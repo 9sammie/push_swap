@@ -6,25 +6,25 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:53:41 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/30 17:53:43 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 14:53:19 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_push(t_stack *dest, int val) //ajoute au dernier element
+void	stack_push(t_stack *dest, int val)
 {
 	dest->array[dest->length] = val;
 	dest->length++;
 }
 
-int		stack_pop(t_stack *stack) //enleve le dernier element. pourquoi ne pas decrementer apres ?
+int	stack_pop(t_stack *stack)
 {
 	stack->length--;
 	return (stack->array[stack->length]);
 }
 
-int		stack_shift(t_stack *stack) //enleve le 1er element
+int	stack_shift(t_stack *stack)
 {
 	int	tmp;
 
@@ -34,7 +34,7 @@ int		stack_shift(t_stack *stack) //enleve le 1er element
 	return (tmp);
 }
 
-void	stack_unshift(t_stack *stack, int val) //ajoute au premier element
+void	stack_unshift(t_stack *stack, int val)
 {
 	ft_memmove(stack->array + 1, stack->array, (stack->length) * sizeof(int));
 	stack->array[0] = val;

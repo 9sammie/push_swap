@@ -6,13 +6,13 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:26:49 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/04 14:30:02 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 12:34:22 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		char_checker(char **argv)
+int	char_checker(char **argv)
 {
 	int	i;
 	int	j;
@@ -40,7 +40,7 @@ int		char_checker(char **argv)
 	return (0);
 }
 
-int		int_doublechecker(t_stack *stack_a)
+int	int_doublechecker(t_stack *stack_a)
 {
 	int	i;
 	int	j;
@@ -63,7 +63,7 @@ int		int_doublechecker(t_stack *stack_a)
 	return (0);
 }
 
-int		int_overflowchecker(t_stack *stack_a, char **numbers)
+int	int_overflowchecker(t_stack *stack_a, char **numbers)
 {
 	int		i;
 	long	check;

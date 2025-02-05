@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:45:57 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/03 11:11:44 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 14:51:42 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-int		sort_check(t_stack *stack)
+int	sort_check(t_stack *stack)
 {
 	int	i;
 
