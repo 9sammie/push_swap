@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:26:49 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/05 15:31:11 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 18:22:27 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ int	char_checker(char **argv)
 	}
 	return (0);
 }
+
+	// changer par une valeur sûre. J'ai une loop infinie.
+	// i = argc - 1;
+	// while (i-- > 0)
+	// {
+	// 	j = argc - 1;
+	// 	while (j-- > 0)
 
 int	int_doublechecker(t_stack *stack_a)
 {

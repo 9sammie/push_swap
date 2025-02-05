@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 19:58:49 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/05 12:51:38 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 18:17:24 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ typedef struct	s_stack
 	int	*array;
 }				t_stack;
 
-int		push_swap(t_stack *stack_a, t_stack *stack_b, char **numbers);
-int		int_doublechecker(t_stack *stack_a);
+int		push_swap(t_stack *stack_a, t_stack *stack_b, char **numbers, int argc);
+int		int_doublechecker(t_stack *stack_a, int argc);
 int		char_checker(char **argv);
 int		int_overflowchecker(t_stack *stack_a, char **numbers);
 void	stack_push(t_stack *dest, int val);
