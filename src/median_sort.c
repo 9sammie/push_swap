@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:34:01 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/05 13:01:29 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 16:01:37 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ int	find_median(t_stack *a)
 	copy.array = malloc(sizeof(int) * a->length);
 	if (copy.array == NULL)
 		return (-1);
-	med_nbr = copy.array[a->length / 2];
 	while (i < a->length)
 	{
 		copy.array[i] = a->array[i];
 		i++;
 	}
 	cpy_sort(&copy);
+	med_nbr = copy.array[a->length / 2];
 	if (a->length % 2 == 0)
 		median = med_nbr - 1;
 	else

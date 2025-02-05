@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:22:28 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/05 12:52:52 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 15:55:55 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ int	count_cost_01(t_stack *dest, int *index_of_closest, int *i)
 	{
 		if (*index_of_closest > *i)
 			cost = *index_of_closest;
-		else if (*index_of_closest < *i)
-			cost = *i;
 		else
-			cost = dest->length - *index_of_closest + *i;
+			cost = *i;
 	}
+	else
+		cost = dest->length - *index_of_closest + *i;
 	return (cost);
 }
 

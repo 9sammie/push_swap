@@ -6,13 +6,12 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:24:22 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/05 14:52:33 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 15:48:41 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//find and return the biggest number of the given stack.
 int	find_max(t_stack *stack)
 {
 	int	max;
