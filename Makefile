@@ -31,7 +31,7 @@ BONUS =	src/checker.c \
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 HEADER = inc/push_swap.h
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a

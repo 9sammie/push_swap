@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:26:49 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/05 18:22:27 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 18:21:30 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	char_checker(char **argv)
 				j++;
 			if (ft_isdigit(argv[i][j]) == 0)
 			{
-				ft_putendl_fd("Error", 0);
+				ft_putendl_fd("Error", 2);
 				return (1);
 			}
 			j++;
@@ -40,27 +40,20 @@ int	char_checker(char **argv)
 	return (0);
 }
 
-	// changer par une valeur sûre. J'ai une loop infinie.
-	// i = argc - 1;
-	// while (i-- > 0)
-	// {
-	// 	j = argc - 1;
-	// 	while (j-- > 0)
-
 int	int_doublechecker(t_stack *stack_a)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (stack_a->array[i])
+	while (i < stack_a->length)
 	{
 		j = i;
-		while (stack_a->array[j])
+		while (j < stack_a->length)
 		{
 			if (stack_a->array[i] == stack_a->array[j] && i != j)
 			{
-				ft_putendl_fd("Error", 0);
+				ft_putendl_fd("Error", 2);
 				return (1);
 			}
 			j++;
@@ -81,7 +74,7 @@ int	int_overflowchecker(t_stack *stack_a, char **numbers)
 		check = ft_atoi(numbers[i + 1]);
 		if (check > INT_MAX || check < INT_MIN)
 		{
-			ft_putendl_fd("Error", 0);
+			ft_putendl_fd("Error", 2);
 			return (1);
 		}
 		stack_a->array[i] = check;

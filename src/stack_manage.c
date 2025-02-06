@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:53:41 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/05 14:53:19 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 18:12:08 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	stack_shift(t_stack *stack)
 	int	tmp;
 
 	tmp = stack->array[0];
-	ft_memmove(stack->array, stack->array + 1, (stack->length) * sizeof(int));
+	if (stack->length > 1)
+		ft_memmove(stack->array, stack->array + 1, (stack->length - 1) * sizeof(int));
 	stack->length--;
 	return (tmp);
 }

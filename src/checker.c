@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:51:52 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/05 12:38:45 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 17:25:00 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ int	execute_instruction(char *cmd, t_stack *a, t_stack *b)
 {
 	if (ft_strncmp(cmd, "sa\n", 4) == 0)
 		swap(a, NULL, NULL);
-	else if (ft_strncmp(cmd, "sb\n", 4) == 0 && b->length > 1)
+	else if (ft_strncmp(cmd, "sb\n", 4) == 0)
 		swap(b, NULL, NULL);
 	else if (ft_strncmp(cmd, "ss\n", 4) == 0)
 		swap(a, b, NULL);
-	else if (ft_strncmp(cmd, "pa\n", 4) == 0 && b->length > 0)
+	else if (ft_strncmp(cmd, "pa\n", 4) == 0)
 		push(a, b, NULL);
-	else if (ft_strncmp(cmd, "pb\n", 4) == 0 && a->length > 0)
+	else if (ft_strncmp(cmd, "pb\n", 4) == 0)
 		push(b, a, NULL);
 	else if (ft_strncmp(cmd, "ra\n", 4) == 0)
 		rotate(a, NULL, NULL);
@@ -54,7 +54,7 @@ int	exec_instruct(t_stack *a, t_stack *b)
 		free(line);
 		if (i == 1)
 		{
-			write (1, "Error\n", 6);
+			write (2, "Error\n", 6);
 			return (1);
 		}
 		line = get_next_line(0);
@@ -62,17 +62,20 @@ int	exec_instruct(t_stack *a, t_stack *b)
 	return (0);
 }
 
-int	init(t_stack *a, char **numbers)
+int	init(t_stack *stack_a, t_stack *stack_b, char **numbers)
 {
-	int		i;
+	int i;
 
 	i = 0;
-	while (numbers[i + 1] != NULL)
-	{
-		a->array[i] = ft_atoi(numbers[i + 1]);
-		i++;
-	}
-	a->length = i;
+	if (char_checker(numbers) == 1)
+		return (1);
+	if (int_overflowchecker(stack_a, numbers) == 1)
+		return (1);
+	if (int_doublechecker(stack_a) == 1)
+		return (1);
+	i = exec_instruct(stack_a, stack_b);
+	if (i == 1)
+		return (1);
 	return (0);
 }
 
@@ -91,9 +94,9 @@ int	main(int argc, char **argv)
 	stack_b.array = malloc((argc - 1) * sizeof(int));
 	if (stack_a.array == NULL || stack_b.array == NULL)
 		ret = EXIT_FAILURE;
-	init(&stack_a, argv);
-	if (exec_instruct(&stack_a, &stack_b))
-		return (1);
+	ret = init(&stack_a, &stack_b, argv);
+	if (ret == 1)
+		return (ret);
 	if (sort_check(&stack_a) == 0 && stack_b.length == 0)
 		write(1, "OK\n", 3);
 	else

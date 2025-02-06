@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:09:17 by maballet          #+#    #+#             */
-/*   Updated: 2025/01/22 14:06:22 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/06 18:22:32 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ long	ft_atoi(const char *nptr)
 	i = 0;
 	sign = 1;
 	result = 0;
+	if (nptr == NULL)
+		return (LONG_MAX);
 	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
