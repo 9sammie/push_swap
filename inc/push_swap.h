@@ -6,16 +6,16 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 19:58:49 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/06 11:44:45 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 15:25:15 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft.h"
+# include "libft.h"
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int	length;
 	int	*array;
@@ -54,6 +54,7 @@ void	option_03(t_stack *a, t_stack *b, int cheapest, int closest);
 void	option_04(t_stack *a, t_stack *b, int cheapest, int closest);
 int		find_cheapest(t_stack *stack_a, t_stack *stack_b);
 int		count_cost_01(t_stack *dest, int *index_of_closest, int *i);
-int		count_cost_02(t_stack *dest, t_stack *src, int *index_of_closest, int *i);
+int		count_cost_02(t_stack *dest, t_stack *src,
+			int *index_of_closest, int *i);
 
 #endif

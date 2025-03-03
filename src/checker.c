@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:51:52 by maballet          #+#    #+#             */
-/*   Updated: 2025/02/06 17:25:00 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/03 15:22:21 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	exec_instruct(t_stack *a, t_stack *b)
 
 int	init(t_stack *stack_a, t_stack *stack_b, char **numbers)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (char_checker(numbers) == 1)
