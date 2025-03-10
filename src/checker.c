@@ -6,7 +6,7 @@
 /*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:51:52 by maballet          #+#    #+#             */
-/*   Updated: 2025/03/03 15:22:21 by maballet         ###   ########lyon.fr   */
+/*   Updated: 2025/03/10 13:33:38 by maballet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,15 @@ int	exec_instruct(t_stack *a, t_stack *b)
 	return (0);
 }
 
-int	init(t_stack *stack_a, t_stack *stack_b, char **numbers)
+int	init(t_stack *stack_a, t_stack *stack_b, char **numbers, int argc)
 {
 	int	i;
 
 	i = 0;
+	stack_a->length = 0;
+	stack_a->array = malloc((argc - 1) * sizeof(int));
+	stack_b->length = 0;
+	stack_b->array = malloc((argc - 1) * sizeof(int));
 	if (char_checker(numbers) == 1)
 		return (1);
 	if (int_overflowchecker(stack_a, numbers) == 1)
@@ -88,15 +92,15 @@ int	main(int argc, char **argv)
 	ret = 0;
 	if (argc < 2)
 		return (0);
-	stack_a.length = 0;
-	stack_a.array = malloc((argc - 1) * sizeof(int));
-	stack_b.length = 0;
-	stack_b.array = malloc((argc - 1) * sizeof(int));
 	if (stack_a.array == NULL || stack_b.array == NULL)
 		ret = EXIT_FAILURE;
-	ret = init(&stack_a, &stack_b, argv);
+	ret = init(&stack_a, &stack_b, argv, argc);
 	if (ret == 1)
+	{
+		free(stack_a.array);
+		free(stack_b.array);
 		return (ret);
+	}
 	if (sort_check(&stack_a) == 0 && stack_b.length == 0)
 		write(1, "OK\n", 3);
 	else
