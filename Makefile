@@ -50,12 +50,10 @@ all: $(NAME)
 $(NAME): lib
 	$(MAKE) .compile
 
-
-
 $(CHECKER): $(OBJ_BONUS) $(LIBFT)
 		$(CC) $(CFLAGS) $(OBJ_BONUS) -L $(LIBFT_DIR) -lft -o $(CHECKER)
 
-$(OBJ_DIR)/%.o : src/%.c $(HEADER) Makefile | $(OBJ_DIR)
+$(OBJ_DIR)/%.o : src/%.c $(HEADER) libft/inc/libft.h | $(OBJ_DIR)
 		$(CC) $(CFLAGS) -I inc -I $(LIBFT_DIR)/inc -o $@ -c $<
 
 $(OBJ_DIR):
